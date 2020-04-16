@@ -2,10 +2,14 @@ from django.contrib import messages
 from django.shortcuts import render,redirect
 from s_admin.models import AdminLoginModel
 # Create your views here.
+
+
+
+# admin Login
 def login(request):
     return render(request,"s_admin/login.html")
 
-
+# Login Check
 def admin_login_check(request):
     user_name = request.POST.get('user_name')
     password = request.POST.get('password')
@@ -18,11 +22,11 @@ def admin_login_check(request):
         messages.error(request,"Invalid User name and password")
         return redirect('login')
 
-
+# Admin Home
 def admin_home(request):
     return render(request, "s_admin/home.html")
 
-
+# Admin Logout
 def admin_logout(request):
     request.session['status'] = False
     return redirect('login')
