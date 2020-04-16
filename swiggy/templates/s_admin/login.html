@@ -1,0 +1,30 @@
+{% load static %}
+{% include 's_admin/menu.html' %}
+
+<br><br>
+<form action="{% url 'admin_login_check' %} "  method="post">
+    {% csrf_token %}
+{% if request.session.status %}
+    <table align="center" border="2">
+    <tr><td>{% static 'media/admin2.png' %}</td></tr>
+    <tr><td><h3>Admin Home</h3></td></tr>
+</table>
+
+    {% else %}
+<table align="center" border="0" bgcolor="#deb887">
+
+    <thead><th colspan="2" height="100" style="color: blue;text-align: center; font-family: 'Calibri Light';font-size: 50px">Admin Login Page</th></thead>
+    <tr><th width="100" height="100">User Name </th><th> <input type="text" required name="user_name">  </th></tr>
+    <tr><th width="100" height="100">Password </th><th> <input type="password" required name="password">  </th></tr>
+    <tr><td align="center" colspan="2"><button type="submit">Login</button> </td></tr>
+
+ {% for x in  messages %}
+
+        <tr><td align="center" style="color: red" colspan="2">{{x }}</td></tr>
+    {% endfor %}
+
+</table>
+
+
+</form>
+{% endif %}

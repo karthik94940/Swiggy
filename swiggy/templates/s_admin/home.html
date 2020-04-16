@@ -1,0 +1,19 @@
+{% load static %}
+{% block common %}
+
+{% include 's_admin/menu.html' %}
+
+    <br><br><br>
+
+    {% if request.session.status %}
+
+        <table align="center" border="2">
+    <tr><td>{% static 'media/admin2.png' %}</td></tr>
+    <tr><td><h3>Admin Home</h3></td></tr>
+</table>
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+{% endblock %}
