@@ -1,0 +1,33 @@
+{% load static %}
+
+
+<body style="background-image: url({% static 'media/state bg color.jpg' %}) ;
+  background-repeat: no-repeat; background-size: 100% 100%" >
+{% block common %}
+    {% include 's_admin/menu.html' %}
+
+     <br><br><br>
+
+    {% if request.session.status %}
+        <table align="center" border="2" style="font-size: 20px">
+            <thead><th>S.No</th><th>State Name</th><th>Update</th><th>Delete</th></thead>
+            {% for x in sm %}
+                <tr>
+                    <td>{{ x.state_id }}</td>
+                    <td>{{x.state_name}}</td>
+                    <td style="text-align: center"><a href="{% url 'update_state' %}?no={{ x.state_id }}& name = {{ x.state_name }}"> <img src="{% static 'media/loop.png' %}"></a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+
+    <lable style="text-align: center;color: aqua; "><h1>{{ message}}</h1></lable>
+
+{% endblock %}
+</body>

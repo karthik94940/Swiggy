@@ -1,4 +1,8 @@
 {% load static %}
+
+<body style="background-image: url({% static 'media/admin bg.jpg' %}) ;
+  background-repeat: no-repeat; background-size: 100% 100%" >
+
 {% block common %}
 
 {% include 's_admin/menu.html' %}
@@ -7,9 +11,10 @@
 
     {% if request.session.status %}
 
-        <table align="center" border="2">
-    <tr><td>{% static 'media/admin2.png' %}</td></tr>
-    <tr><td><h3>Admin Home</h3></td></tr>
+        <table align="center" border="0">
+        <tr><td><h3>Admin Home</h3></td></tr>
+    <tr><td><img src="{% static "media/admin3.jpg" %}"></td></tr>
+
 </table>
 
      {% else %}
@@ -17,3 +22,5 @@
     {% endif %}
 
 {% endblock %}
+
+</body>

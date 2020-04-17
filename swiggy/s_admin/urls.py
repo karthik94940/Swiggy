@@ -27,4 +27,9 @@ urlpatterns = [
 
     #State
     path('admin_state/',views.admin_state,name = 'admin_state'),
+    path('add_states/',views.add_states,name = 'add_states'),
+    path('insert_states/',views.insert_states,name = 'insert_states'),
+    path('view_states/',views.view_states,name = 'view_states'),
+    path('update_state/',views.update_state,name = 'update_state'),
+    path('update_state_data/',views.update_state_data,name = 'update_state_data')
 ]

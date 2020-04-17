@@ -1,0 +1,29 @@
+{% load static %}
+
+
+<body style="background-image: url({% static 'media/state bg color.jpg' %}) ;
+  background-repeat: no-repeat; background-size: 100% 100%" >
+{% block common %}
+    {% include 's_admin/menu.html' %}
+
+     <br><br><br>
+
+    {% if request.session.status %}
+        <table align="center" border="2" style="font-size: 20px">
+            <form action="{% url 'update_state_data' %} " method="post">
+            {% csrf_token %}
+           <thead><th>State Id :<input type="hidden" value=" {{ no }}" name = 'no'></th></thead>
+            <tr><td><input type="text" required value="{{ na }}" name = "state_name"></td></tr>
+            <td align="center"><button type="submit">Update</button></td>
+            </form>
+        </table>
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+
+    <lable style="text-align: center;color: aqua; "><h1>{{ message}}</h1></lable>
+
+{% endblock %}
+</body>
