@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from restaurant import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('',views.restaurant_home,name = 'restaurant_home'),
+    path('restaurant_registration/',views.RestaurantRegistration.as_view(),name = 'restaurant_registration'),
 ]

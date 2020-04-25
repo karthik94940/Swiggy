@@ -15,7 +15,9 @@
                 <tr>
                     <td>{{ x.state_id }}</td>
                     <td>{{x.state_name}}</td>
-                    <td style="text-align: center"><a href="{% url 'update_state' %}?no={{ x.state_id }}& name = {{ x.state_name }}"> <img src="{% static 'media/loop.png' %}"></a> </td>
+                    <td style="text-align: center"><a href="{% url 'update_state' %}?sno={{ x.state_id }} & sname ={{ x.state_name }}"> <img src="{% static 'media/loop.png' %}"></a> </td>
+
+                <td style="text-align: center"><a href="{% url 'delete_state' %}?sno={{ x.state_id }}"> <img src="{% static 'media/delete.png' %}"></a> </td>
                 </tr>
             {% endfor %}
         </table>

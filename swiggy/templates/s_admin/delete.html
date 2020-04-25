@@ -1,0 +1,32 @@
+{% load static %}
+
+
+<body style="background-image: url({% static 'media/admin bg.jpg' %}) ;
+        background-repeat: no-repeat; background-size: 100% 100%" xmlns="http://www.w3.org/1999/html">
+{% block common %}
+    {% include 's_admin/menu.html' %}
+
+     <br><br><br>
+
+    {% if request.session.status %}
+
+        <table align="center" border="2">
+        <form  method="post">
+        {% csrf_token %}
+        <thead><th colspan="2" style="text-align: center">Restuarant Type Operations</th></thead>
+        <tr><td  colspan="2" style="text-align: center">{{ object.restaurant_type_name }}</td></tr>
+        <tr><td style="text-align: center"><button type="submit" >Delete</button> </td>
+        </form>
+
+            <form action="{% url 'insert_restaurant' %}"> <td style="text-align: center"><button type="submit">Back</button> </td></form></tr>
+        </table>
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+
+    <lable style="text-align: center;color: aqua; "><h1>{{ message}}</h1></lable>
+
+{% endblock %}
+</body>

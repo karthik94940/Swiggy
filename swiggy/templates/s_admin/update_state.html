@@ -12,8 +12,9 @@
         <table align="center" border="2" style="font-size: 20px">
             <form action="{% url 'update_state_data' %} " method="post">
             {% csrf_token %}
-           <thead><th>State Id :<input type="hidden" value=" {{ no }}" name = 'no'></th></thead>
-            <tr><td><input type="text" required value="{{ na }}" name = "state_name"></td></tr>
+
+           <thead><th>State Id : <input type="hidden" value="{{ data.state_id}}" readonly name = 'sno'>{{ data.state_id }}</th></thead>
+            <tr><td><input type="text" required value="{{data.state_name }}" name = "sname"></td></tr>
             <td align="center"><button type="submit">Update</button></td>
             </form>
         </table>

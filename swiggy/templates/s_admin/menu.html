@@ -18,13 +18,13 @@
         <a class="nav-link" href="{% url 'admin_state' %}">State <span class="sr-only">(current)</span></a>
       </li>
               <li class="nav-item active">
-        <a class="nav-link" href="#">City <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'view_city' %}">City <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Area <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'area_operations' %}">Area <span class="sr-only">(current)</span></a>
           <li class="nav-item active">
 
-        <a class="nav-link" href="#">Restaurant_type <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'insert_restaurant' %}">Restaurant_type <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item active">
         <a class="nav-link" href="{% url 'admin_logout' %}">Logout<span class="sr-only">(current)</span></a>

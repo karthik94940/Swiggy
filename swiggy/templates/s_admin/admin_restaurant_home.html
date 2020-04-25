@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<body style="background-image: url({% static 'media/admin bg.jpg' %}) ;
+  background-repeat: no-repeat; background-size: 100% 100%" >
+{% block common %}
+    {% include 's_admin/menu.html' %}
+
+     <br><br><br>
+
+    {% if request.session.status %}
+        <form action="{% url 'insert_restaurant' %} " method="post">
+        {% csrf_token %}
+        <table align="center" border="2">
+        <thead><th colspan="2" style="text-align: center">Restuarant Type Operations</th></thead>
+        <tr><td>{{ form }}</td></tr>
+        <tr><td colspan="2" style="text-align: center"><button type="submit" >Save</button> </td></tr>
+        </table>
+        </form>
+        <br><br>
+        <table align="center" border="2" style="font-size: 20px;color: aqua;">
+            <thead style="color: yellow"><th>Id</th><th>Restuarant Name</th><<th>Update</th><th>Delete</th></thead>
+            {% for x in object_list %}
+                <tr>
+                    <td>{{ x.restaurant_type_id}}</td>
+                    <td >{{x.restaurant_type_name}}</td>
+                    <td style="text-align: center"><a href=" {% url 'update' x.restaurant_type_id %} "> <img src="{% static 'media/loop.png' %}"> </a> </td>
+
+
+                <td style="text-align: center"><a href="{% url 'delete' x.restaurant_type_id %}" > <img src="{% static 'media/delete.png' %}"></a> </td>
+                </tr>
+
+
+            {% endfor %}
+        </table>
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+
+    <lable style="text-align: center;color: aqua; "><h1>{{ message}}</h1></lable>
+
+{% endblock %}
+</body>

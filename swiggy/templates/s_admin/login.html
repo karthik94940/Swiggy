@@ -6,7 +6,7 @@
     {% csrf_token %}
 {% if request.session.status %}
     <table align="center" border="2">
-    <tr><td>{% static 'media/admin2.png' %}</td></tr>
+    <tr><td><img src=" {% static 'media/admin2.png' %}"></td></tr>
     <tr><td><h3>Admin Home</h3></td></tr>
 </table>
 
