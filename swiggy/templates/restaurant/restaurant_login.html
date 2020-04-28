@@ -1,0 +1,22 @@
+{% load static %}
+{% include 'restaurant/menu.html' %}
+
+
+<br><br>
+
+<table align="center" border="2">
+    <form action="{% url "restauratn_login_check" %}" method="post">
+        {% csrf_token %}
+    <thead><th colspan="2">Restaurant Login</th></thead>
+    <tr><td>Contact No </td><td><input type="number" required name="cno"></td></tr>
+    <tr><td>Password </td><td><input type="password" required name="passwd"></td></tr>
+    <tr><td align="center" colspan="2"><button type="submit">Login</button> </td></tr>
+
+    </form>
+
+
+</table><br>
+
+{% if message %}
+       <center style="color: Red ; font-family: 'Franklin Gothic Medium' ; font-size: 35px">{{ message }}</center>
+    {% endif %}

@@ -1,0 +1,27 @@
+{% load static %}
+
+
+<body style="background-image: url({% static 'media/state bg color.jpg' %}) ;
+  background-repeat: no-repeat; background-size: 100% 100%" >
+{% block common %}
+    {% include 's_admin/menu.html' %}
+
+
+    {% if request.session.status %}
+        <table align="center" border="2">
+         <tr style="width: 150px ; text-align: center"><td ><form action="{% url 'view_approved_status' %} "><button type="submit">Approved</button> </form> </td></tr><br><br>
+
+            <tr style="width: 150px ; text-align: center"><td ><form action="{% url 'view_cancel_status' %} "><button type="submit">Canceled</button> </form> </td></tr><br><br>
+
+        </table>
+
+
+     {% else %}
+        <h3 align="center" style="color: Red ; font-family: 'Bitstream Vera Sans Mono';font-style: italic"> Please Login</h3>
+    {% endif %}
+
+
+    <lable style="text-align: center;color: aqua; "><h1>{{ message}}</h1></lable>
+
+{% endblock %}
+</body>

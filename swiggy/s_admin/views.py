@@ -4,6 +4,7 @@ from django.views.generic import CreateView,ListView,UpdateView,DeleteView
 
 from s_admin.forms import *
 from s_admin.models import *
+from restaurant.models import RestaurantRegistrationModel
 # Create your views here.
 
 
@@ -187,3 +188,38 @@ class Update(UpdateView):
     model = AdminRestaurantTypeModel
     fields = ('restaurant_type_name',)
     success_url = '/insert_restaurant/'
+
+
+# Restaurant Status
+class RestaurantStatus(ListView):
+    model = RestaurantRegistrationModel
+    template_name = "s_admin/restaurant_status.html"
+
+# display Pending data
+class PendingRestaurantStatus(ListView):
+
+    queryset = RestaurantRegistrationModel.objects.filter(restaurant_status__iexact='pending')
+
+    template_name = "s_admin/pending_restaurant_status.html"
+
+#aprove status
+def restaurant_status_approve(request):
+    no = request.POST['no']
+    res = RestaurantRegistrationModel.objects.filter(restaurant_id=no).update(restaurant_status = "approved")
+    return redirect('pending_restaurant_status')
+
+
+def restaurant_status_cancel(request):
+    no = request.POST['no']
+    res = RestaurantRegistrationModel.objects.filter(restaurant_id=no).update(restaurant_status="canceled")
+    return redirect('pending_restaurant_status')
+
+
+class ViewApprovedStatus(ListView):
+    queryset = RestaurantRegistrationModel.objects.filter(restaurant_status__iexact="approved")
+    template_name = "s_admin/approved_restaurant_status.html"
+
+
+class ViewCancelStatus(ListView):
+    queryset = RestaurantRegistrationModel.objects.filter(restaurant_status__iexact="canceled")
+    template_name = "s_admin/cancel_restaurant_status.html"

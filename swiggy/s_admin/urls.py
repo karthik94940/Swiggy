@@ -57,4 +57,14 @@ urlpatterns = [
     path('insert_restaurant/',views.AdminRestaurantType.as_view(),name = 'insert_restaurant'),
     path('update/<int:pk>',views.Update.as_view(),name = 'update'),
     path('delete/<int:pk>',views.Dlete.as_view(),name = 'delete'),
+
+
+    #Restaurant Status
+    path('restaurant_status/',views.RestaurantStatus.as_view(),name = 'restaurant_status'),
+    path('pending_restaurant_status/',views.PendingRestaurantStatus.as_view(),name = 'pending_restaurant_status'),
+    path('restaurant_status_approve/',views.restaurant_status_approve , name = 'restaurant_status_approve'),
+    path('restaurant_status_cancel/', views.restaurant_status_cancel, name='restaurant_status_cancel'),
+    path('view_approved_status/',views.ViewApprovedStatus.as_view(),name = 'view_approved_status'),
+    path('view_cancel_status/', views.ViewCancelStatus.as_view(), name='view_cancel_status'),
+
 ]

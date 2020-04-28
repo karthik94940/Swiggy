@@ -1,0 +1,15 @@
+{% load static %}
+{% include 'restaurant/menu.html' %}
+
+
+<br><br>
+
+
+<table align="center" border="2">
+    <form action="{% url 'otp_verified' %}" method="post">
+        {% csrf_token %}
+
+    <tr><td>Enter OTP <input type="password" required name="otpv"> </td><td><button type="submit">Submit</button> </td></tr>
+
+    </form>
+</table>

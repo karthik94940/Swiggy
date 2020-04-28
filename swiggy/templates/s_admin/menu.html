@@ -27,9 +27,16 @@
         <a class="nav-link" href="{% url 'insert_restaurant' %}">Restaurant_type <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item active">
+        <a class="nav-link" href="{% url 'restaurant_status' %}">Restaurant Status   <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="{% url 'pending_restaurant_status' %}">Pending Rstaurant Status   <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
         <a class="nav-link" href="{% url 'admin_logout' %}">Logout<span class="sr-only">(current)</span></a>
       </li>
       </li>
+
     </ul>
   </div>
 </nav>

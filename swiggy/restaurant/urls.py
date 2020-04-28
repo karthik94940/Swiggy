@@ -21,4 +21,7 @@ from restaurant import views
 urlpatterns = [
     path('',views.restaurant_home,name = 'restaurant_home'),
     path('restaurant_registration/',views.RestaurantRegistration.as_view(),name = 'restaurant_registration'),
+    path('restaurant_login/',views.restaurant_login , name = 'restaurant_login'),
+    path('restauratn_login_check/',views.restauratn_login_check,name = 'restauratn_login_check'),
+    path('otp_verified/',views.otp_verified,name = 'otp_verified')
 ]
